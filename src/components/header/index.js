@@ -10,7 +10,7 @@ const Header = ({ header }) => {
   return (
     <>
       <Head>
-        <title>{siteTitle || "Nexts WooCommerce"}</title>
+        <title>{siteTitle || "Nextjs WooCommerce"}</title>
         <link rel="icon" href={favicon || "/favicon.ico"} />
       </Head>
       <div className="header">

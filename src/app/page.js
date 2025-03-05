@@ -1,24 +1,21 @@
 import Image from "next/image";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import axios from "axios";
 import { HEADER_FOOTER_ENDPOINT } from "@/utils/constants/endpoints";
 
-export default function Home() {
+export const revalidate = 1;
+
+export default async function Home(props) {
+  const { header, footer } = await axios.get(HEADER_FOOTER_ENDPOINT);
+
   return (
     <div>
-      <Header />
+      <Header header={header} />
       <main>
         <div className="text-green-600">Hello world</div>
       </main>
-      <Footer />
+      <Footer footer={footer} />
     </div>
   );
-}
-
-export async function getInitialProps() {
-  const { data } = await axios.get(HEADER_FOOTER_ENDPOINT);
-  return {
-    props: data || {},
-    revalidate: 1,
-  };
 }
