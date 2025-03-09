@@ -16,7 +16,10 @@ export async function GET(request) {
 
   try {
     // Getting data from woo store
-    const { data } = await wooApi.get("products");
+    console.log(wooApi.headers);
+    const response = await wooApi.get("products");
+    console.log(response.headers);
+    const { data } = response;
     responseData.success = true;
     responseData.products = data;
     return Response.json(responseData);
@@ -24,7 +27,7 @@ export async function GET(request) {
     console.log(error);
     return Response.json(
       { success: false, error: error.message },
-      { status: 500 }
+      { status: response.status }
     );
   }
 }

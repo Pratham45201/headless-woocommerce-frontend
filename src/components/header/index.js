@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import { isEmpty } from "lodash";
-import axios from "axios";
 
 const Header = ({ header }) => {
   const { headerMenuItems, siteDescription, siteLogoUrl, siteTitle, favicon } =

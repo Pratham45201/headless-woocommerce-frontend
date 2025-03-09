@@ -1,7 +1,6 @@
 import Img from "next/image";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import classNames from "classnames";
 
 const Image = (props) => {
   const {
